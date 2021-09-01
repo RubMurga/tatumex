@@ -7,7 +7,18 @@ defmodule Tatumex.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: "A Middleware to use tatum on Elixir.",
+      package: package()
+    ]
+  end
+
+  defp package do
+    [
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["Ruben Murga"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/RubMurga/tatumex"}
     ]
   end
 
@@ -22,7 +33,8 @@ defmodule Tatumex.MixProject do
   defp deps do
     [
       {:httpoison, "~> 1.7"},
-      {:poison, "~> 5.0"}
+      {:poison, "~> 5.0"},
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false}
     ]
   end
 end
